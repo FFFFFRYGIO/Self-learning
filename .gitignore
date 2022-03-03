@@ -1,0 +1,26 @@
+# for flask-tutorial
+flask-tutorial/.pytest_cache/
+flask-tutorial/flaskr/__pycache__/
+flask-tutorial/flaskr.egg-info
+flask-tutorial/instance/
+flask-tutorial/tests/__pycache__/
+
+# for makefile-tutorial
+makefile-tutorial/__pycache__/
+makefile-tutorial/venv/
+
+# for postgres_sqlalchemy
+postgres_sqlalchemy/__pycache__/
+postgres_sqlalchemy/build/
+postgres_sqlalchemy/dist/
+postgres_sqlalchemy/create_and_connect.spec
+
+# for pytest-tutorial
+pytest-tutorial/__pycache__/
+pytest-tutorial/.pytest_cache
+pytest-tutorial/student/__pycache__/
+pytest-tutorial/.converagerc
+
+# for Python for begginers
+Python*for*begginers/__pycache__/
+Python*for*begginers/pfb24/

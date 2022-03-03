@@ -1,0 +1,54 @@
+- run pytest:
+pytest filename.py
+# test functions should be named like "test*()"
+
+- run tests from catalog:
+py.test
+# files with test should be named like "test*.py"
+
+- run with printing details:
+pytest filename.py -v
+
+- run just one test method:
+pytest filename.py::testname
+
+- run methods containing some string in name (here - "add"):
+pytest filename.py -k "add"
+
+- using bool functions in "-k" attribute:
+pytest filename.py -k "add or product"
+pytest filename.py -k "add and string"
+
+- running with marks:
+pytest filename.py -m markname
+
+-stop test after first failure:
+pytest filename.py -x
+
+-stop test after some failures (here - 10):
+pytest filename.py --maxfail=1
+
+- dont print failures analysis:
+pytest filename.py --tb=no
+
+- skip test:
+@pytest.mark.skip(reason="why do not run this test")
+
+- skip test by condition:
+@pytest.mark.skipif(condition, reason="why do not run this test")
+
+- print only summary of tests:
+pytest filename.py -q
+
+- print statements from test functions:
+pytest filename.py -s
+pytest filename.py --capture=no
+
+usage of pytest.ini file:
+- adding markers:
+"""
+[pytest]
+markers =
+    number: mark a test as a number
+    strings: mark a test as a strings
+"""
