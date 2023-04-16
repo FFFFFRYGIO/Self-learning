@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>React</title>
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            // function - stateless, no changing stane, only when return value
+            // Still You can use hooks to change states in functions
+            // class methods - stateful, using state and modifying it
+            const Names = props => {
+                const [showNameState, setShowNameState] = React.useState(true)
+                const names = ['Kevin', 'Oscar', 'Pam']
+                const namesList = names.map(name => <li key={name}>{name}</li>)
+                // const toggleNames = () => setShowNameState(!showNameState)
+
+                return (<div>{props.test ? <ul>{namesList}</ul> : 'No names'}</div>)
+            }
+
+            class Headline extends React.Component {
+                state = {
+                    title: 'ReactJS',
+                    showNames: true
+                }
+
+                toggleNames() {
+                    this.setState({showNames: !this.state.showNames})
+                }
+
+                render() { // JSX - extension for js with html syntax
+                    
+                    const changeTitle = () => this.setState({title: 'Vue'})
+
+                    return (
+                        <div>
+                            <h1>Hello {this.state.title}</h1>
+                            <Names test={this.state.showNames}/>
+                            <button onClick={changeTitle}>Change title</button>
+                            <button onClick={() => this.toggleNames()}>Hide names</button>
+                            <button onClick={this.toggleNames.bind(this)}>Hide names</button>
+                        </div>
+                    )
+                    // return React.createElement('h1', null, 'Hello React')
+                }
+            }
+            // ReactDOM.render(<h1>Hello React</h1>, document.querySelector('#app'))
+            ReactDOM.render(<Headline />, document.querySelector('#app'))
+        </script>
+    </body>
+</html>
